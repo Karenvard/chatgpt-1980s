@@ -5,6 +5,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      REACT_APP_OPENAI_API_KEY: ${{ secrets.REACT_APP_OPENAI_API_KEY }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -17,10 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Create .env file
-        run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
 
       - name: Build React app
         run: npm run build
