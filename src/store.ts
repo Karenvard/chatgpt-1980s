@@ -3,7 +3,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true
+    dangerouslyAllowBrowser: true,
 });
 
 const currentDate = new Date();
@@ -75,6 +75,11 @@ class Store {
             const response = await client.chat.completions.create({
                 model: "gpt-3.5-turbo",
                 messages: [...this.defaultMessages, ...this.messages]
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
+                }
             });
             runInAction(() => {
                 this.isLoading = false;
