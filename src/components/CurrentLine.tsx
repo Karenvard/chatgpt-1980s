@@ -1,6 +1,6 @@
 import { Box, Span } from "@chakra-ui/react"
 import { observer } from "mobx-react-lite";
-import React, { FC } from "react";
+import React from "react";
 import Store from "../store";
 
 export const CurrentLine = observer(() => {
