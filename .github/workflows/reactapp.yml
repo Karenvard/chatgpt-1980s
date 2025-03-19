@@ -1,4 +1,4 @@
-name: React app
+name: Build React app
 
 on: push
 jobs:
