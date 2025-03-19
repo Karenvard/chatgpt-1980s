@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="image/png" sizes="16x16" rel="icon" href="%PUBLIC_URL%/favicon.png">
+    <title>ChatGPT 1980s</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-family: "RetroFont", "Courier New", Courier, monospace;
+        font-stretch: ultra-expanded;
+      }
+
+      html {
+        scrollbar-width: none;
+      }
+      body {
+        -ms-overflow-style: none;
+      }
+      body::-webkit-scrollbar,
+      body::-webkit-scrollbar-button {
+        display: none;
+      }
+
+      body::after {
+        content: "";
+        display: block;
+        height: 50vh;
+      }
+    </style>
+    <div id="root"></div>
+  </body>
+</html>
