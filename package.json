@@ -1,7 +1,7 @@
 {
   "name": "chatgpt-1980s",
   "version": "0.1.0",
-  "homepage": "https://karenvard.github.io/chatgpt-1980s",
+  "homepage": "https://chatgpt-1980s.online",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^3.12.0",
