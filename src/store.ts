@@ -1,12 +1,12 @@
-import { makeAutoObservable, runInAction } from "mobx"
-import OpenAI from "openai";
-
-const client = new OpenAI({
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true,
-});
+import { makeAutoObservable, runInAction } from "mobx";
+import axios from "axios";
 
 const currentDate = new Date();
+
+const SERVER_URL = process.env.NODE_ENV === "production" ? "https://chatgpt-1980s.onrender.com" : "http://localhost:5555";
+const api = axios.create({
+    baseURL: SERVER_URL
+})
 
 class Store {
     constructor() {
@@ -72,18 +72,10 @@ class Store {
                 this.isLoading = true;
                 this.messages.push({ role: "user", content: [{ type: "text", text: newMessage }] })
             })
-            const response = await client.chat.completions.create({
-                model: "gpt-3.5-turbo",
-                messages: [...this.defaultMessages, ...this.messages]
-            }, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
-                }
-            });
+            const { data } = await api.post<string>("/completion", { messages: [...this.defaultMessages, ...this.messages] });
             runInAction(() => {
                 this.isLoading = false;
-                this.messages.push({ role: "assistant", content: [{ type: "text", text: response.choices[0].message.content || "Error. No response" }] })
+                this.messages.push({ role: "assistant", content: [{ type: "text", text: data || "Error. No response" }] })
                 localStorage.setItem("messages", JSON.stringify(this.messages));
             })
         } catch {
