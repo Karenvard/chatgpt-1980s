@@ -9,7 +9,6 @@ export const Prompts = observer(() => {
 
     useEffect(() => {
         initMessages();
-        //localStorage.removeItem("messages");
     }, [])
 
     return (
