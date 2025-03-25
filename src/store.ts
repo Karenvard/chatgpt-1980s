@@ -89,6 +89,11 @@ class Store {
         }
         this.messages = JSON.parse(localStorage.getItem("messages") || "[]");
     }
+    
+    get messagesLength() {
+        this.initMessages();
+        return this.messages.length;
+    }
 }
 
 export default new Store();

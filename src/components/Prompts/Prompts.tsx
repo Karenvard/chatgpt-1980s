@@ -13,9 +13,9 @@ export const Prompts = observer(() => {
 
     return (
         <Box mt="5vh">
-            {[...defaultMessages, ...messages].map(message => {
+            {[...defaultMessages, ...messages].map((message, index) => {
                 if (message.role === "developer") return null;
-                return <TerminalLine from={message.role} text={message.content[0].text} />   
+                return <TerminalLine key={index+1} from={message.role} text={message.content[0].text} />   
             })}
         </Box>
     );
