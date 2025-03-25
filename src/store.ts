@@ -1,19 +1,21 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import axios from "axios";
 
-const currentDate = new Date();
-
 const SERVER_URL = process.env.NODE_ENV === "production" ? "https://chatgpt-1980s.onrender.com" : "http://localhost:5555";
 const api = axios.create({
     baseURL: SERVER_URL
 })
+
+const currentDate = new Date();
+const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+const day = String(currentDate.getDate()).padStart(2, "0");
 
 class Store {
     constructor() {
         makeAutoObservable(this);
     }
 
-    date: Date = new Date(`1981-${currentDate.getMonth() + 1}-${currentDate.getDate()}`);
+    date: Date = new Date(`1981-${month}-${day}`);
     isLoading = false;
     defaultMessages: {
         role: "assistant" | "developer",
