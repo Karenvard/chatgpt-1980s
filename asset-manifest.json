@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.ec6e03a6.css",
-    "main.js": "/static/js/main.2291893a.js",
+    "main.js": "/static/js/main.2086a96a.js",
     "static/media/Px437_IBM_BIOS.ttf": "/static/media/Px437_IBM_BIOS.119def1e58a5df2ca61f.ttf",
     "index.html": "/index.html",
     "main.ec6e03a6.css.map": "/static/css/main.ec6e03a6.css.map",
-    "main.2291893a.js.map": "/static/js/main.2291893a.js.map"
+    "main.2086a96a.js.map": "/static/js/main.2086a96a.js.map"
   },
   "entrypoints": [
     "static/css/main.ec6e03a6.css",
-    "static/js/main.2291893a.js"
+    "static/js/main.2086a96a.js"
   ]
 }
